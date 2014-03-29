@@ -22,7 +22,7 @@ class RequestMappingCheckerTest {
     }
 
 
-    @Test//(expectedExceptions = MultipleCompilationErrorsException)
+    @Test(expectedExceptions = MultipleCompilationErrorsException)
     public void testStandaloneController_NOk() {
         String script = new ClassPathResource("/requestmapping/StandaloneControllerNOk.groovy").inputStream.getText("UTF-8")
         GroovyClassLoader invoker = new GroovyClassLoader()
