@@ -38,7 +38,7 @@ Ie. a checker able to break compilation for this type of error:
 public void test(@PathVariable String fo, @PathVariable String bar) {
 
 }
-```groovy
+```
 
 This AST allows to find these inconsistencies. It will return the error:
 ```text
@@ -47,4 +47,11 @@ test.groovy: 14: Error: @RequestMapping pattern {foo} not declared as @PathVaria
        @RequestMapping(value = ["/path/{foo}/{bar}"])
        ^
 ```
+
+This AST is available as an annotation `@RequestMappingChecker` or as a `@TypeChecked` extension 
+`@TypeChecked(extensions = "script/CheckRequestMapping.groovy")`
+
+
+
+
 
