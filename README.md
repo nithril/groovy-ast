@@ -2,9 +2,10 @@
 
 This project offers the following Groovy AST transformations
 
-## CoerceReturn
+### CoerceReturn
 
 Groovy allows lists as constructors:
+
 ```groovy
 MyBean bean = [0,1,2,3,5]
 ```
@@ -13,7 +14,9 @@ Groovy 2 has introduced type Checking which can be enabled with `@TypeChecked`. 
 are mutually exclusive.
 The purpose of this AST is to allow lists as constructors with the type checker enabled. For the moment he feature is
 restrained to return statement:
+
 ```groovy
+@CoerceReturn
 MyBean f(){
     return [0,1,2,3,5]
 }
@@ -26,9 +29,9 @@ MyBean f(){
 }
 ```
 
-This AST is more an AST test that anything else.
+*This AST is more an AST test that anything else.*
 
-## RequestMappingChecker
+### RequestMappingChecker
 
 As a Spring MVC user I want a checker able to validate `@RequestMapping` and `@PathVariable` consistencies.
 Ie. a checker able to break compilation for this type of error:
