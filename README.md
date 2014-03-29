@@ -43,7 +43,7 @@ public void test(@PathVariable String fo, @PathVariable String bar) {
 }
 ```
 
-This AST allows to find these inconsistencies. It will return the error:
+This AST allows to find these inconsistencies on both direction (`@RequestMapping` <=> `@PathVariable`). It will return this type of error:
 ```text
 test.groovy: 14: Error: @RequestMapping pattern {foo} not declared as @PathVariable
  @ line 14, column 5.
