@@ -13,7 +13,7 @@ import org.codehaus.groovy.transform.GroovyASTTransformation
 /**
  * Created by nithril on 27/03/14.
  */
-@GroovyASTTransformation(phase = CompilePhase.CANONICALIZATION)
+@GroovyASTTransformation(phase = CompilePhase.INSTRUCTION_SELECTION)
 public class CoerceTransformation implements ASTTransformation {
 
 
@@ -52,6 +52,8 @@ public class CoerceTransformation implements ASTTransformation {
                 statement.setExpression(callExpression)
             }
         }
+
+
 
     }
 }

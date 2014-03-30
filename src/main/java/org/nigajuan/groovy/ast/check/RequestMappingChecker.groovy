@@ -34,7 +34,7 @@ class RequestMappingChecker {
 
         //find RequestMapping annotation
         AnnotationNode requestMapping = methodNode.annotations.find {
-            RequestMapping.equals(it.classNode.getTypeClass())
+            RequestMapping.simpleName.equals(it.classNode.getTypeClass().simpleName)
         }
 
         if (!requestMapping) {
@@ -42,7 +42,6 @@ class RequestMappingChecker {
         }
 
         String[] requestMappingPath = asStrings(requestMapping.getMember("value"))
-
 
         //Extract RequestMappingVariable
         Set<String> requestMappingVariables = new HashSet<>()
@@ -56,7 +55,7 @@ class RequestMappingChecker {
         Map<String, Parameter> pathVariableMap = [:]
         methodNode.parameters.each { parameter ->
             AnnotationNode pathVariable = parameter.annotations.find {
-                PathVariable.equals(it.classNode.getTypeClass())
+                PathVariable.simpleName.equals(it.classNode.getTypeClass().simpleName)
             }
             if (pathVariable) {
                 String pathName = asString(pathVariable.getMember("value")) ?: parameter.name

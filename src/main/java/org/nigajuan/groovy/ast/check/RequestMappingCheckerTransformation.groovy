@@ -9,7 +9,7 @@ import org.codehaus.groovy.transform.GroovyASTTransformation
 /**
  * Created by nithril on 27/03/14.
  */
-@GroovyASTTransformation(phase = CompilePhase.CANONICALIZATION)
+@GroovyASTTransformation(phase = CompilePhase.INSTRUCTION_SELECTION)
 public class RequestMappingCheckerTransformation implements ASTTransformation {
 
 
